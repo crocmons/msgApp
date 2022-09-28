@@ -21,7 +21,10 @@
     align-items: center;
     justify-content: center;
 
-    
+    @include mobile{
+      width: 100%;
+      overflow: hidden;
+      }
 
     .formWrapper{
         background-color:#fff ;
@@ -31,7 +34,11 @@
         flex-direction: column;
         gap:10px;
         align-items: center;
-
+        @include mobile{
+          width: 100%;
+          border: 1px solid gray;
+         
+          }
         
         .logo{
             color: darkblue;
@@ -48,7 +55,10 @@
             flex-direction: column;
             gap:15px;
           
-            
+            @include mobile{
+              width: 100%;
+              }
+
             input{
                 padding: 15px;
                 border: none;
@@ -153,7 +163,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-   
+    
     .container{
         border: 1px solid white;
         border-radius: 10px;
@@ -161,38 +171,69 @@
         height:80%;
         display: flex;
         overflow: hidden;
-       
         
-
+        @include mobile{
+          width: 100%;
+        }
+        @include tablet{
+          width: 100%;
+        }
+       
         .sidebar{
-            display: flex;
-            flex-direction: column;
+            // display: flex;
+            // flex-direction: column;
             flex: 1;
-           
-            // border-right:1px solid darkblue;
             background-color: rgb(39, 5, 70);
             color: #fff;
             padding: 20px;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+            
 
+            .sidebar::-webkit-scrollbar {
+              display: none;
+              -ms-overflow-style: none;
+              scrollbar-width: none;
+            }
+            
+            @include mobile{
+              width: 30%;
+            }
+            @include tablet{
+              width: 30%;
+            }
+            
             .navbar{
                 display: flex;
                 align-items: center;
                 background-color: #03103a;
                 height: 50px;
                 width: 100%;
-                // margin: 10px 10px 0 0;
                 padding: 10px;
                 justify-content: space-between;
                 color: #fff;
+                
+               
 
                 .logo{
                     font-weight: bold;
+                    @include mobile{
+                    position: absolute;
+                    bottom: 610px;
+                    margin-left: 98px;
+                    font-size: 23px;
+                    color: #183593;
+                    }
                 }
                 .user{
                     display: flex;
                     align-items: center;
                     justify-content: center;
                     gap: 8px;
+                    @include mobile{
+                      display:block;
+                      margin: 10px;
+                      }
 
                    button{
                     background-color: #586799;
@@ -202,7 +243,19 @@
                     border: none;
                     border-radius: 10px;
                     cursor: pointer;
+                    @include mobile{
+                      display:inline;
+                      margin: 5px;
+                      }
                    }
+                }
+               
+                @include mobile{
+                  display: flex;
+                  gap: 10px;
+                  padding: 10px;
+                  background: none;
+
                 }
             }
             .search{
@@ -243,7 +296,10 @@
         .chat{
             flex: 2; 
             @include mobile{
-              width:100%;
+              width:60%;
+            }
+            @include tablet{
+              width:60%;
             }
            
             .chatInfo{
@@ -258,10 +314,11 @@
             }
             .chatIcons{
                 display: flex;
+                cursor: pointer;
 
            } 
            .messages{
-             background-color: aliceblue;
+             background-color: rgb(202, 230, 255);
              padding: 10px;
              height: calc(100% - 160px);
              overflow: scroll;
@@ -298,6 +355,7 @@
                 }
                 &.owner{
                   flex-direction: row-reverse;
+                 
                 
                   .msgContent{
                    align-items: flex-end;

@@ -68,7 +68,9 @@ const Input = () => {
   }
   return (
     <div className='input'>
-      <input type="text" placeholder='Messages with your friends ...' value={text} onChange={(e)=>{setText(e.target.value)}}/>
+      <input type="text" placeholder='Chat with your friends ...' value={text} onChange={(e)=>{setText(e.target.value)}}
+      onKeyPress={(e)=>{e.key === "Enter" && handleSend()}}
+      />
       <div className="send">
         <InsertEmoticonIcon />
         <input type='file' style={{display:"none"}} id='file' onChange={(e)=>{setImg(e.target.files[0])}} />

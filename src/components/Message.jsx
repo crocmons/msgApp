@@ -14,14 +14,14 @@ const Message = ({message}) => {
   useEffect(()=>{
     ref.current?.scrollIntoView({
       behaviour:"smooth"
-    })
-  },[message])
+    });
+  },[message]);
   
   return (
-    <div ref={ref} className={`message ${message.senderId === currentUser.uid} && owner`}>
+    <div ref={ref} className={`message ${message.senderId === currentUser.uid && "owner"}`} >
         <div className="msgInfo">
        <Avatar src={message.senderId === currentUser.uid ? currentUser.photoURL : data.user.photoURL} alt=""></Avatar>
-       <span>just now</span>
+       <span>{new Date(Date.now()).getHours() + ":" + new Date(Date.now()).getMinutes()}</span>
         </div>
         <div className="msgContent">
        {message.text && (<p>{message.text}</p> || <img src={message.img} alt="chatImg"/>) }

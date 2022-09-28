@@ -24,8 +24,9 @@ const Search = () => {
   });
      }catch(err){
       setErr(true)
+      setErr(false)
      }
-  }
+    }
     const handleKey = (e)=>{
       e.code === "Enter" && handleSearch()
     }
@@ -73,7 +74,7 @@ const Search = () => {
         <Avatar src={realUser.photoURL} alt='chatuser'> </Avatar>
         <div className="userChatInfo">
           <span>{realUser.displayName}</span>
-          <p>your messge</p>
+          <p>New messge</p>
         </div>
       </div>}
       </div>
